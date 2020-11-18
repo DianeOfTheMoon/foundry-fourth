@@ -10,8 +10,18 @@
     "esmodules": [
         "module/foured.js"
     ],
-    "styles": ["css/actors.css", "css/items.css"],
-    "packs": [],
+
+    "styles": ["css/actors.css", "css/items.css","css/weapon-sheet.css"],
+    "packs": [
+        {
+            "name": "fouredweapons",
+            "label": "Foured Weapons",
+            "path": "packs/items/weapons.db",
+            "entity": "Item",
+            "system": "foured",
+            "module": "foured"
+        }
+    ],
     "languages": [],
     "minimumCoreVersion": "0.7.7",
     "gridDistance": 5,
