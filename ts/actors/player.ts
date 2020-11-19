@@ -1,8 +1,28 @@
 import { AbilityScores } from "./data";
 
-export class PlayerActor extends Actor<PlayerData> {
+export class PlayerActor extends Actor<any> {
 
-    public derp: string = "derp";
+
+  /** @override */
+  prepareBaseData() {
+     
+  }
+
+
+  /**
+   * Handles preparing calculated information that might be needed for combat
+   */
+  /** @override */
+  prepareDerivedData() {
+    const actorData = this.data;
+    // The character data
+    const data = actorData.data;
+
+    data.initiative = {}
+    data.initiative.modifier = Math.floor(data.dexterity.value - 10) / 2;        
+    // TODO: iterate through equipped items/feats/etc to determine the current init bonus
+    data.initiative.bonus = 0;
+  }  
 
 }
 
@@ -25,12 +45,13 @@ export class PlayerSheet extends ActorSheet<PlayerData, PlayerActor> {
         });
     }
 
+    getData(): ActorSheetData<PlayerData> {
+        const data = super.getData();
+        // Add any code for sorting or generating derrived data here
+        return data;
+    }
 
     _updateObject(event: Event, formData: any): Promise<PlayerActor> {
-
-        console.log(JSON.stringify(formData));
-
-
         return this.object.update(formData) as any;
     }
 }
@@ -38,7 +59,11 @@ export class PlayerSheet extends ActorSheet<PlayerData, PlayerActor> {
 export type PlayerData = AbilityScores & {
     name: string;
     hp: {
-            value: number;
-            max: number;
-        }
+        value: number;
+        max: number;
+    }
+    initiative: {
+        modifier: number;
+        bonus: number;
+    }
 }
