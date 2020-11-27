@@ -312,11 +312,12 @@
             },
             "cost": {
                 "value": "standard",
-                "refresh": "encounter"
+                "refresh": "encounter",
+                "available": true
             },
             "target": {
                 "type": "enemy",
-                "count": 1,
+                "value": 1,
                 "range": {
                     "value": "melee",
                     "distance": 0

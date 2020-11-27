@@ -9,6 +9,27 @@
     </header>
     {{> standardText title="Description" name="data.description.value" sheet="power" value=data.description.value }}
     {{> standardText title="Level" name="data.requirements.playerLevel.value" sheet="power" value=data.requirements.playerLevel.value }}
+    {{#CreateLabel name="Action Cost" cssClass="action-cost-label" isFor="data.cost.value"}}
+    {{ CreateSelectbox name="data.cost.value" cssClass="action-cost-select" value=../data.cost.value options=../selectOptions.actionType }}
+    {{/CreateLabel }}
+
+    {{#CreateLabel name="Action Refresh" cssClass="action-refresh-label" isFor="data.cost.refresh"}}
+    {{ CreateSelectbox name="data.cost.refresh" options=../selectOptions.actionRefresh value=../data.cost.refresh cssClass="action-refresh-select"}}
+    {{/CreateLabel }}
+    <section class="power-sheet__target">
+        {{#CreateLabel name="Target Count" cssClass="target-count-label"}}
+        {{ CreateText name="data.target.value" cssClass="target-count-input" value=../data.target.value}}
+        {{/CreateLabel}}
+        {{#CreateLabel name="Target Type" cssClass="target-type-label"}}
+        {{ CreateSelectbox name="data.target.type" cssClass="target-type-select" value=../data.target.type options=../selectOptions.targetType }}
+        {{/CreateLabel}}
+        {{#CreateLabel name="Range Type" cssClass="target-range-type-label"}}
+        {{ CreateSelectbox name="data.target.range.value" cssClass="target-range-type-select" value=../data.target.range.value options=../selectOptions.rangeType }}
+        {{/CreateLabel}}
+        {{#CreateLabel name="Range Distance" cssClass="target-range-distance-label"}}
+        {{ CreateText name="data.target.range.distance" cssClass="target-range-distance-input" value=../data.target.range.distance}}
+        {{/CreateLabel}}
+    </section>
     <section class="power-sheet__on-use">
         <h2>On Use Effects:<button type="button" class="add-power-effect add-on-use" id="add-on-use">
                 <i class="fas fa-plus"></i>Add</button></h2>

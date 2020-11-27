@@ -1,4 +1,5 @@
-import { PowerSource, Stat, PaperDollSlot, ArmorType, ClassRole, WeaponType, WeaponGroup, WeaponCategory } from "../config.js"
+import { PowerSource, Stat, PaperDollSlot, ArmorType, ClassRole, WeaponType, WeaponGroup, WeaponCategory, ActionType, ActionRefresh, RangeType, TargetType } from "../config.js"
+import { FormUtil } from "../util/form-util.js";
 
 export type PhysicalItemData = {
     cost: number;
@@ -39,7 +40,11 @@ export class FouredItemSheet<D, I> extends ItemSheet<D, Item<D>> {
             armorType: ArmorType,
             weaponType: WeaponType,
             weaponGroup: WeaponGroup,
-            weaponCategory: WeaponCategory
+            weaponCategory: WeaponCategory,
+            actionType: FormUtil.EnumToMap(ActionType),
+            actionRefresh: FormUtil.EnumToMap(ActionRefresh),
+            rangeType: FormUtil.EnumToMap(RangeType),
+            targetType: FormUtil.EnumToMap(TargetType)
         }
         return data;
     }

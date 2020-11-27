@@ -76,6 +76,43 @@ export enum Defensive {
     Fortitude = "fortitude"
 }
 
+export enum ActionType {
+    None = "none",
+    Free = "free",
+    ImmediateInterrupt = "immediateInterrupt",
+    ImmediateReaction = "immediateReaction",
+    Minor = "minor",
+    Move = "move",
+    Standard = "standard"
+}
+
+export enum ActionRefresh {
+    AtWill = "atwill",
+    Encounter = "encounter",
+    Daily = "daily"
+}
+
+export enum RangeType {
+    None = "none",
+    Personal = "personal",
+    Touch = "touch",
+    Melee = "melee",
+    CloseBurst = "closeBurst",
+    CloseBlast = "closeBlast",
+    RangedWeapon = "rangedWeapon",
+    Ranged = "ranged",
+    AreaBurst = "areaBurst",
+    AreaWall = "areaWall"
+}
+
+export enum TargetType {
+    None = "none",
+    Party = "party",
+    Friendly = "friendly",
+    Opponent = "opponent",
+    Empty = "empty",
+    Any = "any",
+}
 export enum ItemType {
     None = "none",
     Weapon = "weapon",
