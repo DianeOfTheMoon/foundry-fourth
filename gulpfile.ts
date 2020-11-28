@@ -29,10 +29,20 @@ const watchFiles = function () {
 }
 
 const packageRepo = async function () {
-    gulp.src(['*', '!node_modules/', '!ts/', '!styles/', '!deploy/']).pipe(gulp.dest('foured'));
-    gulp.src('foured').pipe(zip('foured.zip')).pipe(gulp.dest('deploy/'));
-    del('foured', { force: true });
-    return;
+    await del('build');
+    return del('build');
+}
+
+const copyBuild = function () {
+    return gulp.src(['**/*', '!node_modules/**', '!ts/**', '!styles/**', '!deploy/**', '!package.json', '!package-lock.json', '!gulpfile.ts', '!foured.code-workspace', '!tsconfig.json']).pipe(gulp.dest('build/foured'));
+}
+
+const deleteBuild = function () {
+    return del('build');
+}
+
+const zipBuild = function () {
+    return gulp.src('build/**/*').pipe(zip('foured.zip')).pipe(gulp.dest('deploy'));
 }
 
 
@@ -42,4 +52,4 @@ gulp.task("sass", compileSass);
 
 gulp.task("typescript", compileTS);
 
-gulp.task("package", gulp.series(compileTS, compileSass, packageRepo))
+gulp.task("package", gulp.series(compileTS, compileSass, deleteBuild, copyBuild, zipBuild, deleteBuild))
