@@ -4,7 +4,7 @@ import * as sass from "gulp-sass";
 import * as sourcemaps from "gulp-sourcemaps";
 import * as zip from 'gulp-zip';
 import * as Bump from 'conventional-recommended-bump';
-import * as del from 'del';
+var util = require('util');
 
 const tsConfig = ts.createProject("tsconfig.json");
 
@@ -29,10 +29,7 @@ const watchFiles = function () {
 }
 
 const packageRepo = async function () {
-    gulp.src(['*', '!node_modules/', '!ts/', '!styles/', '!deploy/']).pipe(gulp.dest('foured'));
-    gulp.src('foured').pipe(zip('foured.zip')).pipe(gulp.dest('deploy/'));
-    del('foured', { force: true });
-    return;
+    return gulp.src(['*', '!ts/', '!styles/', '!deploy/']).pipe(gulp.dest('foured')).pipe(zip('foured.zip')).pipe(gulp.dest('deploy'));
 }
 
 
