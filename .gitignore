@@ -104,5 +104,6 @@ dist
 .tern-port
 
 deploy/secrets.json
+deploy/foured.zip
 module/
 css/

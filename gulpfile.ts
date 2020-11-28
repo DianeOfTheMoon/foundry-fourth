@@ -2,6 +2,9 @@ import * as gulp from "gulp";
 import * as ts from "gulp-typescript";
 import * as sass from "gulp-sass";
 import * as sourcemaps from "gulp-sourcemaps";
+import * as zip from 'gulp-zip';
+import * as Bump from 'conventional-recommended-bump';
+var util = require('util');
 
 const tsConfig = ts.createProject("tsconfig.json");
 
@@ -25,9 +28,15 @@ const watchFiles = function () {
     gulp.watch('ts/**/*.ts', compileTS);
 }
 
+const packageRepo = async function () {
+    return gulp.src(['*', '!ts/', '!styles/', '!deploy/']).pipe(zip('foured.zip')).pipe(gulp.dest('deploy'));
+}
+
 
 gulp.task("watch", gulp.series(compileTS, compileSass, watchFiles));
 
 gulp.task("sass", compileSass);
 
 gulp.task("typescript", compileTS);
+
+gulp.task("package", gulp.series(compileTS, compileSass, packageRepo))
