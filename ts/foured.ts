@@ -8,7 +8,6 @@ import { PowerEffects } from "./logic/combat/powereffects.js";
 import { DiceDamage } from "./logic/combat/effects/dicedamage.js";
 import { AttackRoll } from "./logic/combat/effects/attackroll.js";
 import { SafeString } from "handlebars";
-import { ApplyEffect } from "./logic/combat/effects/applyeffect.js";
 import { FormUtil } from "./util/form-util.js";
 
 console.log("foured | Loaded foured.js file");
@@ -45,8 +44,6 @@ Hooks.once('init', async function () {
     CombatManager.Register();
     PowerEffects.RegisterOnUsed(new DiceDamage());
     PowerEffects.RegisterOnUse(new AttackRoll());
-    PowerEffects.RegisterOnUse(new ApplyEffect());
-    PowerEffects.RegisterOnUsed(new ApplyEffect());
 
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("foured", PlayerSheet, { makeDefault: true });
@@ -91,6 +88,7 @@ Hooks.once('init', async function () {
 
     FormUtil.RegisterHelpers();
 
+    //TODO - Remove this version
     Handlebars.registerPartial('selectbox', '<select name="{{name}}">{{#each options}}<option value="{{this}}"{{#if (eq ../value this)}} selected{{/if}}>{{this}}</option>{{/each}}</select>');
     Handlebars.registerPartial('selectBox', '<select name="{{name}}">{{#each options}}<option value="{{@key}}"{{#if (eq ../value @key)}} selected{{/if}}>{{this}}</option>{{/each}}</select>');
     Handlebars.registerPartial('standardText', '<label class="{{sheet}}-sheet__details {{sheet}}-sheet__details__{{name}}">{{titleCase title}}:<input type="text" name="{{name}}" value="{{value}}" /></label>');

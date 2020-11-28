@@ -10,7 +10,12 @@
     "esmodules": [
         "module/foured.js"
     ],
-    "styles": ["css/actors.css", "css/items.css", "css/weapon-sheet.css"],
+    "styles": [
+        "css/actors.css",
+        "css/items.css",
+        "css/chat.css",
+        "css/weapon-sheet.css"
+    ],
     "packs": [
         {
             "name": "fouredweapons",
