@@ -2,11 +2,16 @@
     "compileOnSave": true,
     "compilerOptions": {
         "outDir": "./module",
+        "moduleResolution": "node",
+        "module": "commonjs",
         "allowJs": true,
         // "target": "ES6",
         "target": "ES2017",
-        "lib": ["DOM", "ES6", "ES2017"],
-
+        "lib": [
+            "DOM",
+            "ES6",
+            "ES2017"
+        ],
         "sourceMap": true,
         "declaration": true,
         "types": [
