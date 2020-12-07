@@ -141,8 +141,32 @@
                 "stat_block",
                 "defenses",
                 "skills",
+                "senses",
                 "health"
-            ]
+            ],
+            "dataType": "character"
+        },
+        "monster": {
+            "templates": [
+                "health",
+                "defenses",
+                "skills",
+                "stat_block",
+                "senses"
+            ],
+            "speed": {
+                "value": 6
+            },
+            "xp": {
+                "value": 125
+            },
+            "minion": {
+                "value": true
+            },
+            "initiative": {
+                "value": 0
+            },
+            "dataType": "monster"
         }
     },
     "Item": {

@@ -1,5 +1,7 @@
-import { PlayerSheet, PlayerActor } from "./actors/player.js";
-import { ItemType } from "./item/data.js";
+import { FouredActor } from "./actors/index.js";
+import { PlayerSheet } from "./actors/player.js";
+import { MonsterSheet } from './actors/monster.js';
+import { ItemType, ActorType } from "./config.js";
 import { PlayerClassSheet, PlayerClassItem } from "./item/playerClass.js";
 import { WeaponSheet, WeaponItem } from "./item/weapon.js";
 import { PowerSheet, PowerItem } from "./item/power.js";
@@ -12,12 +14,12 @@ import { FormUtil } from "./util/form-util.js";
 
 console.log("foured | Loaded foured.js file");
 
-CONFIG.Combat.initiative.formula = "1d20 + @initiative.modifier + @initiative.bonus";
+CONFIG.Combat.initiative.formula = "1d20 + @initiativeBonus";
 
 Hooks.once('init', async function () {
     console.log("foured | Starting foured initialization");
 
-    CONFIG.Actor.entityClass = PlayerActor;
+    (CONFIG.Actor.entityClass as any) = FouredActor;
     (CONFIG.statusEffects as any) = [
         { id: "dead", label: "EFFECT.StatusDead", icon: "icons/svg/skull.svg" },
         { id: "unconscious", label: "EFFECT.StatusUnconscious", icon: "icons/svg/unconscious.svg" },
@@ -46,15 +48,16 @@ Hooks.once('init', async function () {
     PowerEffects.RegisterOnUse(new AttackRoll());
 
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("foured", PlayerSheet, { makeDefault: true });
+    Actors.registerSheet("foured", PlayerSheet, { types: [ActorType.Character], makeDefault: true });
+    Actors.registerSheet("foured", MonsterSheet, { types: [ActorType.Monster], makeDefault: true });
+    //Actors.registerSheet("foured", MonsterSheet, { types: [ActorType.Monster], makeDefault: true });
+    Actors.registerSheet("foured", MonsterSheet, { types: [ActorType.Monster], makeDefault: true });
+    //Actors.registerSheet("foured", MonsterSheet, { types: [ActorType.Monster], makeDefault: true });
+    //Actors.registerSheet("foured", MonsterSheet, { types: [ActorType.Monster], makeDefault: true });
 
     Items.registerSheet("foured", WeaponSheet, { types: [ItemType.Weapon], makeDefault: true });
     Items.registerSheet("foured", PowerSheet, { types: [ItemType.Power], makeDefault: true });
     Items.registerSheet("foured", PlayerClassSheet, { types: [ItemType.PlayerClass], makeDefault: true });
-
-    Handlebars.registerHelper('debug', function (...a) {
-        console.log(a);
-    });
 
     Handlebars.registerHelper('titleCase', function (word: string) {
         return word.titleCase();
