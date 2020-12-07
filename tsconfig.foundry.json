@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "files": [
+        "../../../../../../../../Program Files/FoundryVTT/resources/app/public/scripts/**/*.js"
+    ],
+    "include": [],
+    "compilerOptions": {
+        "declaration": true,
+        "noEmit": false,
+        "emitDeclarationOnly": true
+    }
+}

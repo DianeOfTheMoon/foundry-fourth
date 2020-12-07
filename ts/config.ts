@@ -121,3 +121,18 @@ export enum ItemType {
     Feat = "feat",
     Power = "power"
 }
+
+export enum ActorType {
+    None = "none",
+    Character = "character",
+    Monster = "monster"
+}
+
+export enum Size {
+    Unknown = "none",
+    Small = "small",
+    Medium = "medium",
+    Large = "large",
+    Huge = "huge",
+    Gargantuan = "gargantuan"
+}

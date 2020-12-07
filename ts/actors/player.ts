@@ -1,34 +1,8 @@
-import { AbilityScores, CharacterLevel, Senses } from "./data.js";
+import { AbilityScore, AbilityScores, CharacterLevel, Senses } from "./data.js";
 import { Hp, Defenses } from "../common/data.js";
 import { ItemType } from "../config.js";
 import { data } from "jquery";
-
-export class PlayerActor extends Actor {
-
-
-
-    prepareDerivedData() {
-        const actorData = this.data;
-        // The character data
-        const data = actorData.data;
-
-        /* Initiative */
-        data.initiative = {}
-        data.initiative.modifier = Math.floor((data.dexterity.value - 10) / 2);
-        // TODO: Calculate additional initiative bonuses
-        data.initiative.bonus = 0;
-        data.initiative.value = data.initiative.modifier + data.initiative.bonus;
-
-        /* Health */
-        data.hp.bloodied = Math.floor(data.hp.max / 2);
-
-        data.movement = {
-            value: 6
-        }
-
-    }
-
-}
+import { FouredActor, FouredData, PlayerActor, PlayerData } from "./index.js";
 
 export class PlayerSheet extends ActorSheet<PlayerData, PlayerActor> {
 
@@ -89,14 +63,7 @@ export class PlayerSheet extends ActorSheet<PlayerData, PlayerActor> {
     }
 
     _updateObject(event: Event, formData: any): Promise<PlayerActor> {
+        formData.dataType = "player";
         return this.object.update(formData) as any;
     }
-}
-
-export type PlayerData = AbilityScores & Defenses & {
-    name: string;
-    hp: Hp;
-    level: CharacterLevel
-    senses: Senses;
-
 }

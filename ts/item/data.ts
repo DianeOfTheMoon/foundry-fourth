@@ -1,4 +1,4 @@
-import { PowerSource, Stat, PaperDollSlot, ArmorType, ClassRole, WeaponType, WeaponGroup, WeaponCategory, ActionType, ActionRefresh, RangeType, TargetType } from "../config.js"
+import { ItemType, PowerSource, Stat, PaperDollSlot, ArmorType, ClassRole, WeaponType, WeaponGroup, WeaponCategory, ActionType, ActionRefresh, RangeType, TargetType } from "../config.js"
 import { FormUtil } from "../util/form-util.js";
 
 export type PhysicalItemData = {
@@ -18,13 +18,6 @@ export type DamageData = {
 export type PaperDollData = {
     slot: PaperDollSlot;
     equippable: boolean;
-}
-
-export enum ItemType {
-    Weapon = "weapon",
-    Armor = "armor",
-    PlayerClass = "playerClass",
-    Power = "power"
 }
 
 export class FouredItemSheet<D, I> extends ItemSheet<D, Item<D>> {

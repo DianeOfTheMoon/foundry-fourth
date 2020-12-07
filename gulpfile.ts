@@ -45,11 +45,18 @@ const zipBuild = function () {
     return gulp.src('build/**/*').pipe(zip('foured.zip')).pipe(gulp.dest('deploy'));
 }
 
+const runDeclaration = function () {
+    const decl = ts.createProject('tsconfig.foundry.json');
+    return decl.src().pipe(decl()).pipe(gulp.dest('lib'));
+}
+
 
 gulp.task("watch", gulp.series(compileTS, compileSass, watchFiles));
 
 gulp.task("sass", compileSass);
 
 gulp.task("typescript", compileTS);
+
+gulp.task("declare", runDeclaration);
 
 gulp.task("package", gulp.series(compileTS, compileSass, deleteBuild, copyBuild, zipBuild, deleteBuild))

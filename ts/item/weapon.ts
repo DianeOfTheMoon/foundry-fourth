@@ -1,4 +1,5 @@
-import { PhysicalItemData, DamageData, PaperDollData, ItemType, FouredItemSheetData, FouredItemSheet } from "./data.js";
+import { ItemType } from '../config.js';
+import { PhysicalItemData, DamageData, PaperDollData, FouredItemSheetData, FouredItemSheet } from "./data.js";
 import { PaperDollSlot, Stat, WeaponCategory, WeaponGroup, WeaponType } from "../config.js"
 
 /**
