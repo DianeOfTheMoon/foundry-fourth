@@ -60,12 +60,14 @@
                         value="{{data.movement.value}}" data-dtype="Number" />
                 </span>
                 <span>
-                    <h4>Perception</h4><input type="text" name="data.senses.perception.value"
-                        value="{{data.senses.perception.value}}" data-dtype="Number" />
+                    <h4 class="d20roll" data-roll="perception.bonus" data-roll-type="Perception Roll">Perception</h4>
+                    <input type="text" name="data.senses.perception.value" value="{{data.senses.perception.value}}"
+                        data-dtype="Number" />
                 </span>
                 <span>
-                    <h4>Insight</h4><input type="text" name="data.senses.insight.value"
-                        value="{{data.senses.insight.value}}" data-dtype="Number" />
+                    <h4 class="d20roll" data-roll="insight.bonus" data-roll-type="Insight Roll">Insight</h4><input
+                        type="text" name="data.senses.insight.value" value="{{data.senses.insight.value}}"
+                        data-dtype="Number" />
                 </span>
             </div>
         </section>
