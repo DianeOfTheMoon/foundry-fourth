@@ -98,9 +98,10 @@
 
     {{!-- Sheet Tab Navigation --}}
     <nav class="sheet-tabs tabs" data-group="primary">
-        <a class="item" data-tab="attributes">Attributes</a>
-        <a class="item" data-tab="items">Items</a>
-        <a class="item" data-tab="powers">Powers</a>
+        <a class="item h3" data-tab="attributes">Attributes</a>
+        <a class="item h3" data-tab="skills">Skills</a>
+        <a class="item h3" data-tab="items">Items</a>
+        <a class="item h3" data-tab="powers">Powers</a>
     </nav>
 
 
@@ -108,31 +109,30 @@
     <section class="sheet-body grow">
         {{!-- Attributes Tab --}}
         <div class="tab attributes inputStack" data-group="primary" data-tab="attributes">
-            <h3>Attributes</h3>
             <span>
-                <h4>Strength</h4>
+                <h4 data-roll="data.strength.bonus">Strength</h4>
                 <input type="text" name="data.strength.value" value="{{data.strength.value}}" data-dtype="Number" />
             </span>
             <span>
-                <h4>Constitution</h4>
+                <h4 data-roll="data.constitution.bonus">Constitution</h4>
                 <input type="text" name="data.constitution.value" value="{{data.constitution.value}}"
                     data-dtype="Number" />
             </span>
             <span>
-                <h4>Dexterity</h4>
+                <h4 data-roll="data.dexterity.bonus">Dexterity</h4>
                 <input type="text" name="data.dexterity.value" value="{{data.dexterity.value}}" data-dtype="Number" />
             </span>
             <span>
-                <h4>Intelligence</h4>
+                <h4 data-roll="data.intelligence.bonus">Intelligence</h4>
                 <input type="text" name="data.intelligence.value" value="{{data.intelligence.value}}"
                     data-dtype="Number" />
             </span>
             <span>
-                <h4>Wisdom</h4>
+                <h4 data-roll="data.wisdom.bonus">Wisdom</h4>
                 <input type="text" name="data.wisdom.value" value="{{data.wisdom.value}}" data-dtype="Number" />
             </span>
             <span>
-                <h4>Charisma</h4>
+                <h4 data-roll="data.charisma.bonus">Charisma</h4>
                 <input type="text" name="data.charisma.value" value="{{data.charisma.value}}" data-dtype="Number" />
             </span>
         </div>
@@ -140,18 +140,145 @@
         <div class="tab biography" data-group="primary" data-tab="description">
             {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
         </div> -->
+        <div class="tab skills flexrow" data-group="primary" data-tab="skills">
+            <section class="inputStack">
+                <span>
+                    <h5 data-roll="data.skills.acrobatics.bonus">Acrobatics</h5>
+                    <input type="checkbox" value="true" name="data.skills.acrobatics.trained"
+                        {{#if data.skills.acrobatics.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.acrobatics.value" value="{{data.skills.acrobatics.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.arcana.bonus">Arcana</h5>
+                    <input type="checkbox" value="true" name="data.skills.arcana.trained"
+                        {{#if data.skills.arcana.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.arcana.value" value="{{data.skills.arcana.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.athletics.bonus">Athletics</h5>
+                    <input type="checkbox" value="true" name="data.skills.athletics.trained"
+                        {{#if data.skills.athletics.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.athletics.value" value="{{data.skills.athletics.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.bluff.bonus">Bluff</h5>
+                    <input type="checkbox" value="true" name="data.skills.bluff.trained"
+                        {{#if data.skills.bluff.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.bluff.value" value="{{data.skills.bluff.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.diplomacy.bonus">Diplomacy</h5>
+                    <input type="checkbox" value="true" name="data.skills.diplomacy.trained"
+                        {{#if data.skills.diplomacy.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.diplomacy.value" value="{{data.skills.diplomacy.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.dungeoneering.bonus">Dungeoneering</h5>
+                    <input type="checkbox" value="true" name="data.skills.dungeoneering.trained"
+                        {{#if data.skills.dungeoneering.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.dungeoneering.value"
+                        value="{{data.skills.dungeoneering.value}}" data-dtype="Number" />
+                </span>
+            </section>
+            <section class="inputStack">
+                <span>
+                    <h5 data-roll="data.skills.endurance.bonus">Endurance</h5>
+                    <input type="checkbox" value="true" name="data.skills.endurance.trained"
+                        {{#if data.skills.endurance.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.endurance.value" value="{{data.skills.endurance.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.heal.bonus">Heal</h5>
+                    <input type="checkbox" value="true" name="data.skills.heal.trained" {{#if data.skills.heal.trained}}
+                        checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.heal.value" value="{{data.skills.heal.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.history.bonus">History</h5>
+                    <input type="checkbox" value="true" name="data.skills.history.trained"
+                        {{#if data.skills.history.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.history.value" value="{{data.skills.history.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.insight.bonus">Insight</h5>
+                    <input type="checkbox" value="true" name="data.skills.insight.trained"
+                        {{#if data.skills.insight.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.insight.value" value="{{data.skills.insight.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.intimidate.bonus">Intimidate</h5>
+                    <input type="checkbox" value="true" name="data.skills.intimidate.trained"
+                        {{#if data.skills.intimidate.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.intimidate.value" value="{{data.skills.intimidate.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.nature.bonus">Nature</h5>
+                    <input type="checkbox" value="true" name="data.skills.nature.trained"
+                        {{#if data.skills.nature.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.nature.value" value="{{data.skills.nature.value}}"
+                        data-dtype="Number" />
+                </span>
+            </section>
+            <section class="inputStack">
+                <span>
+                    <h5 data-roll="data.skills.perception.bonus">Perception</h5>
+                    <input type="checkbox" value="true" name="data.skills.perception.trained"
+                        {{#if data.skills.perception.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.perception.value" value="{{data.skills.perception.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.religion.bonus">Religion</h5>
+                    <input type="checkbox" value="true" name="data.skills.religion.trained"
+                        {{#if data.skills.religion.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.religion.value" value="{{data.skills.religion.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.stealth.bonus">Stealth</h5>
+                    <input type="checkbox" value="true" name="data.skills.stealth.trained"
+                        {{#if data.skills.stealth.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.stealth.value" value="{{data.skills.stealth.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.streetwise.bonus">Streetwise</h5>
+                    <input type="checkbox" value="true" name="data.skills.streetwise.trained"
+                        {{#if data.skills.streetwise.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.streetwise.value" value="{{data.skills.streetwise.value}}"
+                        data-dtype="Number" />
+                </span>
+                <span>
+                    <h5 data-roll="data.skills.thievery.bonus">Thievery</h5>
+                    <input type="checkbox" value="true" name="data.skills.thievery.trained"
+                        {{#if data.skills.thievery.trained}} checked="checked" {{/if}} />
+                    <input type="text" name="data.skills.thievery.value" value="{{data.skills.thievery.value}}"
+                        data-dtype="Number" />
+                </span>
+            </section>
+        </div>
 
         {{!-- Owned Items Tab --}}
         <div class="tab items" data-group="primary" data-tab="items">
             <h3>Weapons</h3>
             <ol class="item-list">
                 {{#each inventory.weapon.items as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
-                        {{item.name}}
-                        <div class="item-controls flexrow">
-                            <a class="item-control item-delete" title='Delete'><i class="fas fa-trash"></i></a>
-                        </div>            
-                    </li>
+                <li class="item flexrow" data-item-id="{{item._id}}">
+                    {{item.name}}
+                    <div class="item-controls flexrow">
+                        <a class="item-control item-delete" title='Delete'><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
                 {{/each}}
             </ol>
 
@@ -159,12 +286,12 @@
             <h3>Armor</h3>
             <ol class="item-list">
                 {{#each inventory.armor.items as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
-                        {{item.name}}
-                        <div class="item-controls flexrow">
-                            <a class="item-control item-delete" title='Delete'><i class="fas fa-trash"></i></a>
-                        </div>            
-                    </li>
+                <li class="item flexrow" data-item-id="{{item._id}}">
+                    {{item.name}}
+                    <div class="item-controls flexrow">
+                        <a class="item-control item-delete" title='Delete'><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
                 {{/each}}
             </ol>
         </div>
@@ -174,15 +301,15 @@
             <h3>Powers</h3>
             <ol class="item-list">
                 {{#each inventory.power.items as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
-                        {{item.name}}
-                        <div class="item-controls flexrow">
-                            <a class="item-control item-delete" title='Delete'><i class="fas fa-trash"></i></a>
-                        </div>            
-                    </li>
+                <li class="item flexrow" data-item-id="{{item._id}}">
+                    {{item.name}}
+                    <div class="item-controls flexrow">
+                        <a class="item-control item-delete" title='Delete'><i class="fas fa-trash"></i></a>
+                    </div>
+                </li>
                 {{/each}}
             </ol>
-        </div>        
+        </div>
     </section>
 
 

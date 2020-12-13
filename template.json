@@ -60,70 +60,104 @@
             "skills": {
                 "acrobatics": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "dexterity"
                 },
                 "arcana": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "intelligence"
                 },
                 "athletics": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "strength"
                 },
                 "bluff": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "charisma"
                 },
                 "diplomacy": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "charisma"
                 },
                 "dungeoneering": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "wisdom"
                 },
                 "endurance": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "constitution"
                 },
                 "heal": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "wisdom"
                 },
                 "history": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "intelligence"
                 },
                 "insight": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "wisdom"
                 },
                 "intimidate": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "charisma"
                 },
                 "nature": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "wisdom"
                 },
                 "perception": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "wisdom"
                 },
                 "religion": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "intelligence"
                 },
                 "stealth": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "dexterity"
                 },
                 "streetwise": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "charisma"
                 },
                 "thievery": {
                     "value": 0,
+                    "bonus": 0,
+                    "trained": false,
                     "stat": "dexterity"
                 }
             },
