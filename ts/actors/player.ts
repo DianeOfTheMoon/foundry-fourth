@@ -3,6 +3,7 @@ import { Hp, Defenses } from "../common/data.js";
 import { ItemType } from "../config.js";
 import { data } from "jquery";
 import { FouredActor, FouredData, PlayerActor, PlayerData } from "./index.js";
+import DataObjectParser from "../util/dataobject-parser.js";
 
 export class PlayerSheet extends ActorSheet<PlayerData, PlayerActor> {
 
@@ -16,7 +17,16 @@ export class PlayerSheet extends ActorSheet<PlayerData, PlayerActor> {
 
     activateListeners(html) {
         html.find('.item-delete').click(this._onItemDelete.bind(this));
+        html.find('.d20roll').dblclick(this._roll20.bind(this));
         super.activateListeners(html);
+    }
+
+    _roll20(event) {
+
+        const data = this.object.getRollData();
+        data.flavor = event.target.getAttribute("data-roll-type") || "";
+        const roll: any = new Roll("1d20 + @" + event.target.getAttribute("data-roll"), data);
+        roll.toMessage(data);
     }
 
     _onItemDelete(event) {

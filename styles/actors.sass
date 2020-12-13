@@ -44,16 +44,23 @@
             flex-direction: row
             flex-grow: 0
             margin: 2px
+            color: white
 
-        input:last-child
+            *:last-child
+                margin-right: -20px
+                margin-left: 5px
+            input:last-child
+                width: 3em
+
+        input
             background-color: white
             border: 1px solid black
-            width: 3em
             vertical-align: middle
+            width: auto
             margin-top: auto
             margin-bottom: auto
-            margin-left: 5px
-            margin-right: -20px
+        input[data-dtype="Number"]
+            width: 1.5em
 
     .flexLine
         display: flex
