@@ -8,11 +8,19 @@
 			"problemMatcher": [
 				"$tsc-watch"
 			],
+			"group": "build",
+			"label": "tsc: watch - tsconfig.json"
+		},
+		{
+			"type": "npm",
+			"script": "start",
+			"problemMatcher": [],
+			"label": "npm: start",
+			"detail": "gulp watch",
 			"group": {
 				"kind": "build",
 				"isDefault": true
-			},
-			"label": "tsc: watch - tsconfig.json"
+			}
 		}
 	]
 }

@@ -11,6 +11,7 @@
         "module/foured.js"
     ],
     "styles": [
+        "css/fonts.css",
         "css/actors.css",
         "css/items.css",
         "css/chat.css",
