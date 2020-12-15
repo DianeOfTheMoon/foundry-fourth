@@ -15,7 +15,7 @@ export type AbilityScore = {
 }
 
 export type CharacterLevel = {
-    classes: ClassLevel[]
+    value: number
 }
 
 export type ClassLevel = {

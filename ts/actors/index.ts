@@ -40,22 +40,33 @@ export class PlayerActor extends FouredActor<PlayerData> {
     /* @override */
     public UpdateDerivedData(data: any) {
         super.UpdateDerivedData(data);
-        data.level = {
-            value: 2,
-            bonus: 1
+        if (!data.level) {
+            data.level = {
+                value: 1
+            }
         }
+        data.level.bonus = Math.floor((data.level.value || 1) / 2)
         const parser = new DataObjectParser(data);
         this.setAttributeBonuses(data);
         this.setSkillBonuses(data, parser);
 
-        data.initiativeBonus = data.dexterity.bonus + data.level.bonus + data.initiative.value;
+        data.initiativeBonus = data.dexterity.bonus + data.level.bonus + (data.initiative?.value || 0);
         data.hp.bloodied = Math.floor(data.hp.max / 2);
         data.movement = {
             value: 6
         }
-        data.senses.perception.value = 10 + data.perception.bonus;
-        data.senses.insight.value = 10 + data.insight.bonus;
+        data.senses = {
+            perception: {
+                value: 10 + data.perception.bonus
+            },
+            insight: {
+                value: 10 + data.insight.bonus
+            },
+            initiative: {
+                value: 10 + data.dexterity.bonus + data.level.bonus + (data.initiative?.value || 0)
+            }
 
+        }
 
     }
 
