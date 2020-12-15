@@ -160,14 +160,6 @@
                     "trained": false,
                     "stat": "dexterity"
                 }
-            },
-            "senses": {
-                "perception": {
-                    "value": 10
-                },
-                "insight": {
-                    "value": 10
-                }
             }
         },
         "character": {
@@ -175,9 +167,11 @@
                 "stat_block",
                 "defenses",
                 "skills",
-                "senses",
                 "health"
             ],
+            "level": {
+                "value": 1
+            },
             "dataType": "character"
         },
         "monster": {
@@ -193,6 +187,9 @@
             },
             "xp": {
                 "value": 125
+            },
+            "level": {
+                "value": 1
             },
             "minion": {
                 "value": true

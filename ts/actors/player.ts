@@ -67,8 +67,6 @@ export class PlayerSheet extends ActorSheet<PlayerData, PlayerActor> {
             items.push(item);
         })
 
-        console.log(JSON.stringify(inventory));
-
         data.inventory = inventory;
     }
 
